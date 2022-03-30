@@ -95,10 +95,19 @@ void print(FILE *file){
 		if(curr->next == NULL){
 			curr->next->key = "TAIL";
 		}
-		//print "(", curr->key, curr->previous, curr->next)"
-		//curr = curr->next
+		fprintf("(%s, %s, %s), ", curr->key, curr->prev->key, curr->next->key);
+		curr = curr->next;
 	}
 }
 		
+main(int argc, char **argv[]){
+	File *input = fopen(argv[1], "r");
+	File *output =fopen(argv[2], "w");
+	if(input == NULL || output == NULL){
+		printf("Error: File cannot be opened\n");
+		exit(-1);
+	}
 
+
+}
 
