@@ -52,6 +52,7 @@ void addTail(char[20] key){
 	}
 	temp->next = new;
 	new->prev = temp;
+	tail = new;
 }
 
 void del(char[20] key){
@@ -83,6 +84,21 @@ void del(char[20] key){
 	}
 }
 
-
+void print(FILE *file){
+	struct node *curr = head;
+	curr->prev->key = "HEAD";
+	if(curr == NULL){
+		fputs("EMPTY", file);
+		return;
+	}
+	while(curr != tail){
+		if(curr->next == NULL){
+			curr->next->key = "TAIL";
+		}
+		//print "(", curr->key, curr->previous, curr->next)"
+		//curr = curr->next
+	}
+}
+		
 
 
